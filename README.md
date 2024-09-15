@@ -1,2 +1,2 @@
 # SIH-Museum
-Easy Bookings
+Museum Ticket Bookings
