@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const museumTitle = document.querySelector('.museum-section h2');
     let lastScrollTop = 0;
     
-    // Function to animate the words
+    // Function to animate the words (keep this for initial animation)
     function animateWords() {
         words.forEach((word, index) => {
             word.style.opacity = '0';
@@ -16,25 +16,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Create an Intersection Observer
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                animateWords();
-            }
-        });
-    }, { threshold: 0.1 }); // Trigger when 10% of the banner is visible
+    // Remove the Intersection Observer for the banner
 
-    // Observe the banner
-    const banner = document.querySelector('.banner');
-    observer.observe(banner);
-
-    // Trigger animation on scroll
+    // Modify the handleScroll function to remove animateWords
     function handleScroll() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         if (Math.abs(scrollTop - lastScrollTop) > 50) {
-            animateWords();
             animateMuseumTitle();
+            animateCards();
             lastScrollTop = scrollTop;
         }
     }
@@ -48,13 +37,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Card animation and sliding effect
     function animateCards() {
         cards.forEach((card, index) => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateX(100px)';
-            setTimeout(() => {
-                card.style.transition = `opacity 0.6s ease-out, transform 0.6s ease-out ${index * 0.1}s`;
+            if (index === 0) {
+                // Set the first card to be visible without animation
                 card.style.opacity = '1';
                 card.style.transform = 'translateX(0)';
-            }, 50);
+            } else {
+                card.style.opacity = '0';
+                card.style.transform = 'translateX(100px)';
+                setTimeout(() => {
+                    card.style.transition = `opacity 0.6s ease-out, transform 0.6s ease-out ${index * 0.1}s`;
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateX(0)';
+                }, 50);
+            }
         });
     }
 
@@ -90,17 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const cardContainer = document.querySelector('.card-container');
     cardObserver.observe(cardContainer);
 
-    // Modify the handleScroll function to include card animation
-    function handleScroll() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        if (Math.abs(scrollTop - lastScrollTop) > 50) {
-            animateWords();
-            animateMuseumTitle();
-            animateCards();
-            lastScrollTop = scrollTop;
-        }
-    }
-
     // Remove or comment out the card slider code
     /*
     const cardContainer = document.querySelector('.card-container');
@@ -133,8 +117,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Initial animation on page load
-    animateWords();
+    animateWords(); // This will run only once when the page loads
     animateMuseumTitle();
     animateCards();
 
+    // Add this code at the end of your existing JavaScript
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const paymentForm = document.querySelector('.payment-form');
+        if (paymentForm) {
+            paymentForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                // Here you would typically send the form data to your server
+                alert('Payment processing... This is a demo.');
+            });
+        }
+    });
 });
