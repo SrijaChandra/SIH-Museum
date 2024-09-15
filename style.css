@@ -1,0 +1,334 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav {
+    background: linear-gradient(to bottom, #8B0000, #000000); /* Reddish-brown to black gradient */
+    padding: 20px 10px;
+    position: relative;
+}
+
+.top-nav {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center align items */
+    margin-bottom: 15px;
+}
+
+.search-bar {
+    margin-bottom: 10px; /* Add space between search bar and auth buttons */
+    width: 100%; /* Make the search bar container full width */
+    max-width: 600px; /* Increase the maximum width of the search bar */
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    padding: 8px;
+    width: calc(100% - 40px); /* Adjust width to account for the button */
+    border: none;
+    border-radius: 4px 0 0 4px;
+}
+
+.search-bar button {
+    padding: 8px 12px;
+    background-color: #A52A2A;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-bar button:hover {
+    background-color: #8B0000;
+}
+
+.auth-buttons {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.auth-buttons button {
+    padding: 8px 15px;
+    margin: 0 5px;
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.auth-buttons button:hover {
+    background-color: white;
+    color: #8B0000;
+}
+
+.nav-links {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Center the navigation links */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    align-items: center; /* Add this line */
+}
+
+.nav-links li {
+    margin: 5px 10px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #FFF;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.nav-links li a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white for hover effect */
+}
+
+/* Dropdown styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: transparent;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+}
+
+.dropbtn i {
+    margin-right: 5px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: linear-gradient(to bottom, #000000, #333333);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    left: 0;
+}
+
+.dropdown-content a {
+    color: #ffffff;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Menu button styles */
+.menu-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.menu-button:hover .dropdown-content {
+    display: block;
+}
+
+.menu-button:hover .dropbtn {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Banner styles */
+.banner {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
+
+.banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Remove the filter property */
+}
+
+/* Remove the .banner-overlay class entirely */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
+
+.banner-text {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    z-index: 1;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.banner-text .word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(40px) scale(1.2);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.banner-text .word:nth-child(1) { font-size: 64px; }
+.banner-text .word:nth-child(2) { font-size: 58px; }
+.banner-text .word:nth-child(3) { font-size: 52px; }
+.banner-text .word:nth-child(4) { font-size: 46px; }
+.banner-text .word:nth-child(5) { font-size: 40px; }
+
+/* Museum section styles */
+.museum-section {
+    background: linear-gradient(to bottom, #3E2723, #2D1E1A, #1A1A1A);
+    padding: 40px 20px;
+}
+
+.museum-section h2 {
+    color: white;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 36px;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    flex: 0 0 calc(20% - 20px);
+    max-width: 300px;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateX(100px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.3s ease-out;
+}
+
+.card:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-image h3 {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    margin: 0;
+    font-size: 18px;
+}
+
+.card-actions {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.learn-more {
+    text-decoration: none;
+    color: #8B0000;
+    font-weight: bold;
+}
+
+.arrow {
+    font-size: 24px;
+    color: #8B0000;
+}
+
+.card.flipped .card-front {
+    transform: rotateY(180deg);
+}
+
+.card.flipped .card-back {
+    transform: rotateY(0deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transition: transform 0.6s;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    background-color: #f9f9f9;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 2;
+}
+
+.slider-btn.prev {
+    left: 10px;
+}
+
+.slider-btn.next {
+    right: 10px;
+}
