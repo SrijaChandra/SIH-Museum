@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="tailwindcss-colors.css">
+    <link rel="stylesheet" href="paystyle.css">
+    <title>Payment Page</title>
+</head>
+<body>
+    
+    <!-- start: Payment -->
+    <section class="payment-section">
+        <div class="container">
+            <div class="payment-wrapper">
+                <div class="payment-left">
+                    <div class="payment-header">
+                        <div class="payment-header-icon"><i class="ri-flashlight-fill"></i></div>
+                        <div class="payment-header-title">Order Summary</div>
+                        <p class="payment-header-description">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                    </div>
+                    <div class="payment-content">
+                        <div class="payment-body">
+                            <div class="payment-plan">
+                                <div class="payment-plan-type">Pro</div>
+                                <div class="payment-plan-info">
+                                    <div class="payment-plan-info-name">Professional Plan</div>
+                                    <div class="payment-plan-info-price">$49 per month</div>
+                                </div>
+                                <a href="#" class="payment-plan-change">Change</a>
+                            </div>
+                            <div class="payment-summary">
+                                <div class="payment-summary-item">
+                                    <div class="payment-summary-name">Additional fee</div>
+                                    <div class="payment-summary-price">$10</div>
+                                </div>
+                                <div class="payment-summary-item">
+                                    <div class="payment-summary-name">Discount 20%</div>
+                                    <div class="payment-summary-price">-$10</div>
+                                </div>
+                                <div class="payment-summary-divider"></div>
+                                <div class="payment-summary-item payment-summary-total">
+                                    <div class="payment-summary-name">Total</div>
+                                    <div class="payment-summary-price">-$10</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="payment-right">
+                    <form action="" class="payment-form">
+                        <h1 class="payment-title">Payment Details</h1>
+                        <div class="payment-methods">
+                            <button type="button" class="payment-method-button" id="card-method">
+                                <i class="ri-bank-card-line"></i>
+                                <span>Debit/Credit Card</span>
+                            </button>
+                            <button type="button" class="payment-method-button" id="upi-method">
+                                <img src="upi.png" alt="UPI">
+                                <span>UPI</span>
+                            </button>
+                            <button type="button" class="payment-method-button" id="netbanking-method">
+                                <i class="ri-bank-line"></i>
+                                <span>Net Banking</span>
+                            </button>
+                            <button type="button" class="payment-method-button" id="wallet-method">
+                                <i class="ri-wallet-3-line"></i>
+                                <span>Mobile Wallets</span>
+                            </button>
+                        </div>
+
+                        <div id="payment-details-content">
+                            <!-- This div will be populated with the appropriate form fields based on the selected payment method -->
+                        </div>
+
+                        <div id="card-options" style="display: none;">
+                            <div class="card-options">
+                                <div class="card-option">
+                                    <button type="button" class="card-option-button" data-card="mastercard">
+                                        <img src="mastercard.png" alt="Mastercard">
+                                        <span>Mastercard</span>
+                                    </button>
+                                </div>
+                                <div class="card-option">
+                                    <button type="button" class="card-option-button" data-card="visa">
+                                        <img src="visa.png" alt="Visa">
+                                        <span>Visa</span>
+                                    </button>
+                                </div>
+                                <div class="card-option">
+                                    <button type="button" class="card-option-button" data-card="rupay">
+                                        <img src="rupay.png" alt="RuPay">
+                                        <span>RuPay</span>
+                                    </button>
+                                </div>
+                                <div class="card-option">
+                                    <button type="button" class="card-option-button" data-card="other">
+                                        <i class="ri-bank-card-line"></i>
+                                        <span>Other</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-details-form" style="display: none;">
+                                <div class="payment-form-group">
+                                    <input type="text" placeholder=" " class="payment-form-control" id="cardholder-name" required>
+                                    <label for="cardholder-name" class="payment-form-label payment-form-label-required">Name on Card</label>
+                                </div>
+                                <div class="payment-form-group">
+                                    <input type="text" placeholder=" " class="payment-form-control" id="card-number" required>
+                                    <label for="card-number" class="payment-form-label payment-form-label-required">Card Number</label>
+                                </div>
+                                <div class="payment-form-group-flex">
+                                    <div class="payment-form-group">
+                                        <input type="text" class="payment-form-control" id="expiry-date" required>
+                                        <label for="expiry-date" class="payment-form-label payment-form-label-required">Expiry</label>
+                                    </div>
+                                    <div class="payment-form-group">
+                                        <input type="text" placeholder=" " class="payment-form-control" id="cvv" required>
+                                        <label for="cvv" class="payment-form-label payment-form-label-required">CVV</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="upi-options" style="display: none;">
+                            <div class="upi-options-grid">
+                                <div class="upi-option-container">
+                                    <button type="button" class="upi-option-button" data-upi="googlepay">
+                                        <img src="googlepay.png" alt="Google Pay">
+                                        <span>Google Pay</span>
+                                    </button>
+                                    <div class="upi-id-input" style="display: none;">
+                                        <div class="payment-form-group">
+                                            <input type="text" placeholder=" " class="payment-form-control" id="upi-id-googlepay" required>
+                                            <label for="upi-id-googlepay" class="payment-form-label payment-form-label-required">Enter UPI ID</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="upi-option-container">
+                                    <button type="button" class="upi-option-button" data-upi="phonepe">
+                                        <img src="phonepe.png" alt="PhonePe">
+                                        <span>PhonePe</span>
+                                    </button>
+                                    <div class="upi-id-input" style="display: none;">
+                                        <div class="payment-form-group">
+                                            <input type="text" placeholder=" " class="payment-form-control" id="upi-id-phonepe" required>
+                                            <label for="upi-id-phonepe" class="payment-form-label payment-form-label-required">Enter UPI ID</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="upi-option-container">
+                                    <button type="button" class="upi-option-button" data-upi="amazonpay">
+                                        <img src="amazonpay.png" alt="Amazon Pay">
+                                        <span>Amazon Pay</span>
+                                    </button>
+                                    <div class="upi-id-input" style="display: none;">
+                                        <div class="payment-form-group">
+                                            <input type="text" placeholder=" " class="payment-form-control" id="upi-id-amazonpay" required>
+                                            <label for="upi-id-amazonpay" class="payment-form-label payment-form-label-required">Enter UPI ID</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="upi-option-container">
+                                    <button type="button" class="upi-option-button" data-upi="bhim">
+                                        <img src="bhim.png" alt="BHIM">
+                                        <span>BHIM</span>
+                                    </button>
+                                    <div class="upi-id-input" style="display: none;">
+                                        <div class="payment-form-group">
+                                            <input type="text" placeholder=" " class="payment-form-control" id="upi-id-bhim" required>
+                                            <label for="upi-id-bhim" class="payment-form-label payment-form-label-required">Enter UPI ID</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="upi-option-container">
+                                    <button type="button" class="upi-option-button" data-upi="paytm">
+                                        <img src="paytm upi.png" alt="Paytm UPI">
+                                        <span>Paytm UPI</span>
+                                    </button>
+                                    <div class="upi-id-input" style="display: none;">
+                                        <div class="payment-form-group">
+                                            <input type="text" placeholder=" " class="payment-form-control" id="upi-id-paytm" required>
+                                            <label for="upi-id-paytm" class="payment-form-label payment-form-label-required">Enter UPI ID</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="upi-option-container">
+                                    <button type="button" class="upi-option-button" data-upi="other">
+                                        <img src="upi.png" alt="Other UPI">
+                                        <span>Other UPI</span>
+                                    </button>
+                                    <div class="upi-id-input" style="display: none;">
+                                        <div class="payment-form-group">
+                                            <input type="text" placeholder=" " class="payment-form-control" id="upi-id-other" required>
+                                            <label for="upi-id-other" class="payment-form-label payment-form-label-required">Enter UPI ID</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="wallet-options" style="display: none;">
+                            <div class="wallet-options-grid">
+                                <div class="wallet-option-container">
+                                    <button type="button" class="wallet-option-button" data-wallet="paytm">
+                                        <img src="paytm wallet.png" alt="Paytm Wallet">
+                                        <span>Paytm Wallet</span>
+                                    </button>
+                                </div>
+                                <div class="wallet-option-container">
+                                    <button type="button" class="wallet-option-button" data-wallet="mobikwik">
+                                        <img src="mobikwik.png" alt="MobiKwik">
+                                        <span>MobiKwik</span>
+                                    </button>
+                                </div>
+                                <div class="wallet-option-container">
+                                    <button type="button" class="wallet-option-button" data-wallet="amazonpay">
+                                        <img src="amazonpaywallet.png" alt="Amazon Pay Wallet">
+                                        <span>Amazon Pay Wallet</span>
+                                    </button>
+                                </div>
+                                <div class="wallet-option-container">
+                                    <button type="button" class="wallet-option-button" data-wallet="payzapp">
+                                        <img src="payzapp.png" alt="PayZapp">
+                                        <span>PayZapp</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="payment-form-submit-button"><i class="ri-wallet-line"></i> Pay</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end: Payment -->
+
+    <script>
+        const paymentMethods = document.querySelectorAll('.payment-method-button');
+        const cardOptions = document.getElementById('card-options');
+        const cardDetailsForm = document.querySelector('.card-details-form');
+        const upiOptions = document.getElementById('upi-options');
+        const walletOptions = document.getElementById('wallet-options');
+        
+        paymentMethods.forEach(method => {
+            method.addEventListener('click', () => {
+                paymentMethods.forEach(m => m.classList.remove('selected'));
+                method.classList.add('selected');
+                
+                cardOptions.style.display = 'none';
+                upiOptions.style.display = 'none';
+                walletOptions.style.display = 'none';
+                cardDetailsForm.style.display = 'none';
+
+                if (method.id === 'card-method') {
+                    cardOptions.style.display = 'block';
+                } else if (method.id === 'upi-method') {
+                    upiOptions.style.display = 'block';
+                } else if (method.id === 'wallet-method') {
+                    walletOptions.style.display = 'block';
+                }
+            });
+        });
+
+        const cardOptionButtons = document.querySelectorAll('.card-option-button');
+        cardOptionButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                cardOptionButtons.forEach(b => b.classList.remove('selected'));
+                button.classList.add('selected');
+                cardDetailsForm.style.display = 'block';
+            });
+        });
+
+        const expiryDateInput = document.getElementById('expiry-date');
+        
+        expiryDateInput.addEventListener('focus', function() {
+            this.setAttribute('placeholder', 'MM/YY');
+        });
+
+        expiryDateInput.addEventListener('blur', function() {
+            this.setAttribute('placeholder', '');
+        });
+
+        expiryDateInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 2) {
+                value = value.slice(0, 2) + '/' + value.slice(2, 4);
+            }
+            e.target.value = value;
+        });
+
+        const upiOptionButtons = document.querySelectorAll('.upi-option-button');
+        const upiIdInputs = document.querySelectorAll('.upi-id-input');
+        
+        upiOptionButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                upiOptionButtons.forEach(b => {
+                    b.classList.remove('selected');
+                    b.nextElementSibling.style.display = 'none';
+                });
+                button.classList.add('selected');
+                button.nextElementSibling.style.display = 'block';
+            });
+        });
+
+        const walletOptionButtons = document.querySelectorAll('.wallet-option-button');
+        
+        walletOptionButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                walletOptionButtons.forEach(b => b.classList.remove('selected'));
+                button.classList.add('selected');
+            });
+        });
+    </script>
+
+</body>
+</html>

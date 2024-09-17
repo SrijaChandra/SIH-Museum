@@ -108,9 +108,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Modified code for "Museums in Kolkata" text animation
     function animateMuseumTitle() {
         museumTitle.style.opacity = '0';
-        museumTitle.style.transform = 'translateY(20px)';
+        museumTitle.style.transform = 'translateY(40px)';
         setTimeout(() => {
-            museumTitle.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
+            museumTitle.style.transition = 'opacity 2s ease-out, transform 2s ease-out';
             museumTitle.style.opacity = '1';
             museumTitle.style.transform = 'translateY(0)';
         }, 100);
