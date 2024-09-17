@@ -320,7 +320,6 @@ body {
 
 /* Remove the .banner-overlay class entirely */
 
-
 @import url('https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,600;1,600&display=swap');
 
 .banner-text {
@@ -331,7 +330,7 @@ body {
   color: white;
   text-shadow: 0px 0px 0px rgba(0,0,0,0.7);
   z-index: 1;
-  font-family: 'Schibsted Grotesk';
+  font-family: 'Schibsted Grotesk', 'Arial';
   font-weight: 800;
   letter-spacing: 1px;
   word-spacing: 20px;
@@ -501,10 +500,11 @@ font-weight: 500;
 }
 
 .text-body {
-letter-spacing: 1px;
-font-size: 0.9rem;
-margin: 5px 0 15px 0;
-}
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  margin: 5px 0 15px 0;
+  color: #fff;
+  }
 
 /*Button*/
 .card2-button {
@@ -525,8 +525,13 @@ height: 100%;
 position: absolute;
 top: 0;
 left: 0;
-background: #ee9ca7;
-background: linear-gradient(to bottom, #e7aeae, #ee9ca7);
+background: #f6f0f1;
+background: none;
+}
+.card2-img img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /*Hover*/
@@ -628,7 +633,21 @@ transition: all 0.5s;
 .card3:hover:after {
 content: "HELLO";
 }
-/* end of categories section */
+/* .card3-img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #f6f0f1;
+  background: none;
+  }
+  .card3-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  } */
+  /* end of categories section */
 
 
 
