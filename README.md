@@ -4,8 +4,6 @@ Museum Ticket Bookings
 
 **Exhibitopia** is a museum discovery and ticketing web application designed to help users explore nearby museums and exhibitions. With an interactive chatbot interface, users can view museum details, categories, upcoming shows, and securely book tickets — all in one place.
 
-🌐 **Live Site**: [https://exhibitopia.netlify.app/](https://exhibitopia.netlify.app/)
-
 ## 🚀 Features
 
 - 🔎 Search and discover museums located in Kolkata
